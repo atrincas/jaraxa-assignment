@@ -12,7 +12,7 @@ export function DrugList({ items }: DrugListProps) {
         <ListItemButton
           key={item.application_number}
           component="a"
-          href={`/${item.application_number}`}
+          href={`/drugs/${item.application_number}`}
         >
           <ListItemText primary={item.application_number} secondary={item.sponsor_name} />
         </ListItemButton>

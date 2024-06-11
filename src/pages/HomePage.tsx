@@ -1,4 +1,4 @@
-import { Box, Container, CssBaseline } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import {
   Disclaimer,
   ErrorMessage,
@@ -6,11 +6,11 @@ import {
   SearchInput,
   Pagination,
   Skeleton
-} from './lib/components'
-import { useDrugsApi } from './lib/hooks'
-import { ApiStatus } from './types'
+} from '../lib/components'
+import { useDrugsApi } from '../lib/hooks'
+import { ApiStatus } from '../types'
 
-function App() {
+export function HomePage() {
   const { search, query, data, status, currentPage, totalPages } = useDrugsApi()
   let Component = null
 
@@ -45,17 +45,12 @@ function App() {
   console.log({ data, status })
   return (
     <>
-      <CssBaseline />
-      <Box padding={2}>
-        <Container maxWidth="sm">
-          <SearchInput onSubmit={search} />
-        </Container>
-        <Container maxWidth="md" sx={(t) => ({ padding: t.spacing(2) })}>
-          {Component}
-        </Container>
-      </Box>
+      <Container maxWidth="sm">
+        <SearchInput onSubmit={search} />
+      </Container>
+      <Container maxWidth="md" sx={(t) => ({ padding: t.spacing(2) })}>
+        {Component}
+      </Container>
     </>
   )
 }
-
-export default App
