@@ -1,18 +1,26 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { InputAdornment, TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
+import { useNavigate } from 'react-router-dom'
 
 interface SearchInputProps {
-  onSubmit: (query: string) => void
+  initialValue: string
 }
 
-export function SearchInput({ onSubmit }: SearchInputProps) {
-  const [query, setQuery] = useState('')
+export function SearchInput({ initialValue }: SearchInputProps) {
+  const [query, setQuery] = useState<string>(initialValue)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (query === initialValue) return
+
+    setQuery(initialValue)
+  }, [initialValue])
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    onSubmit(query)
-    // setQuery('')
+    if (!query) return
+    navigate(`/?query=${encodeURIComponent(query)}`)
   }
 
   return (

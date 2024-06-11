@@ -1,15 +1,15 @@
 import { Typography } from '@mui/material'
+import { useContext } from 'react'
+import { HomePageContext } from '../../context'
 
-interface ErrorMessageProps {
-  value?: string
-}
+export function ErrorMessage() {
+  const { data } = useContext(HomePageContext)
 
-export function ErrorMessage({ value }: ErrorMessageProps) {
-  if (!value) return null
+  if (!data?.error) return null
 
   return (
     <Typography variant="body2" color="red" align="center">
-      {value}
+      {data.error.message}
     </Typography>
   )
 }

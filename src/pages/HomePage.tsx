@@ -1,17 +1,20 @@
-import { Box, Container } from '@mui/material'
-import {
-  Disclaimer,
-  ErrorMessage,
-  DrugList,
-  SearchInput,
-  Pagination,
-  Skeleton
-} from '../lib/components'
-import { useDrugsApi } from '../lib/hooks'
+import { Container } from '@mui/material'
+import { ErrorMessage, DrugList, SearchInput, Skeleton } from '../lib/components'
 import { ApiStatus } from '../types'
+import { HomePageContext, HomePageProvider } from '../lib/context'
+import { useContext } from 'react'
 
+// Context Wrapper
 export function HomePage() {
-  const { search, query, data, status, currentPage, totalPages } = useDrugsApi()
+  return (
+    <HomePageProvider>
+      <HomePageInner />
+    </HomePageProvider>
+  )
+}
+
+function HomePageInner() {
+  const { status, query } = useContext(HomePageContext)
   let Component = null
 
   if (status === ApiStatus.Loading) {
@@ -19,34 +22,16 @@ export function HomePage() {
   }
 
   if (status === ApiStatus.Error) {
-    Component = <ErrorMessage value={data?.error?.message} />
+    Component = <ErrorMessage />
   }
 
   if (status === ApiStatus.Success) {
-    Component = (
-      <>
-        <DrugList items={data?.results || []} />
-        <Box display="flex" justifyContent="center" marginBottom={2}>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onChange={(page) => {
-              if (!data?.meta?.results.limit) return
-
-              const skip = (page - 1) * data.meta.results.limit
-              search(query, skip)
-            }}
-          />
-        </Box>
-        <Disclaimer value={data?.meta?.disclaimer} />
-      </>
-    )
+    Component = <DrugList />
   }
-  console.log({ data, status })
   return (
     <>
       <Container maxWidth="sm">
-        <SearchInput onSubmit={search} />
+        <SearchInput initialValue={query || ''} />
       </Container>
       <Container maxWidth="md" sx={(t) => ({ padding: t.spacing(2) })}>
         {Component}
