@@ -30,7 +30,7 @@ const HomePageProvider = (props: ProviderProps) => {
 
     let skip: number | undefined
 
-    if (!isNaN(Number(page))) {
+    if (page && !isNaN(Number(page))) {
       skip = (Number(page) - 1) * DEFAULT_RESULTS_LIMIT
     }
 
