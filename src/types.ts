@@ -70,3 +70,10 @@ export interface DrugProduct {
     | 'Over-the-counter'
   te_code: string
 }
+
+export enum ApiStatus {
+  Pending = 'Pending',
+  Loading = 'Loading',
+  Success = 'Success',
+  Error = 'Error'
+}

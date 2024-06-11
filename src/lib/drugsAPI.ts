@@ -11,11 +11,14 @@ export class DrugsAPI {
     return DrugsAPI.instance
   }
 
-  public search = async (query: string): Promise<DrugsApiResponse> => {
+  public search = async (query: string, skip?: number): Promise<DrugsApiResponse> => {
     let result
 
     try {
-      const response = await fetch(`${this.baseURL}?search=${encodeURIComponent(query)}`)
+      const url = `${this.baseURL}?search=${encodeURIComponent(query)}&limit=10${
+        skip ? `&skip=${skip}` : ''
+      }`
+      const response = await fetch(url)
       result = await response.json()
     } catch (err) {
       console.error(err)
