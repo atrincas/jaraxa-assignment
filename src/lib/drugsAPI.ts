@@ -1,4 +1,5 @@
 import { DrugsApiResponse } from '../types'
+import { DEFAULT_RESULTS_LIMIT } from './constants'
 
 export class DrugsAPI {
   private static instance: DrugsAPI
@@ -15,9 +16,9 @@ export class DrugsAPI {
     let result
 
     try {
-      const url = `${this.baseURL}?search=${encodeURIComponent(query)}&limit=10${
-        skip ? `&skip=${skip}` : ''
-      }`
+      const url = `${this.baseURL}?search=${encodeURIComponent(
+        query
+      )}&limit=${DEFAULT_RESULTS_LIMIT}${skip ? `&skip=${skip}` : ''}`
       const response = await fetch(url)
       result = await response.json()
     } catch (err) {

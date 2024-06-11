@@ -29,22 +29,10 @@ export function DrugList() {
           currentPage={currentPage}
           totalPages={totalPages}
           onChange={(page) => {
-            if (!data.meta?.results.limit) return
             if (page < 1 || page > totalPages) return
 
-            navigate(`/?query=${query}&page=${page}&limit=${data.meta?.results.limit}`)
+            navigate(`/?query=${query}&page=${page}`)
           }}
-          // onChange={(page) => {
-          //   if (!query) return
-
-          //   let skip: number | undefined
-
-          //   if (limit && !isNaN(Number(limit))) {
-          //     skip = (page - 1) * Number(limit)
-          //   }
-
-          //   search(query, skip)
-          // }}
         />
       </Box>
       <Disclaimer value={data.meta?.disclaimer} />

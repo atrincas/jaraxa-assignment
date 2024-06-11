@@ -2,6 +2,7 @@ import { createContext, useEffect } from 'react'
 import { ApiStatus, DrugsApiResponse } from '../../types'
 import { useSearchParams } from 'react-router-dom'
 import { useDrugsApi } from '../hooks'
+import { DEFAULT_RESULTS_LIMIT } from '../constants'
 
 interface ProviderProps {
   children?: React.ReactNode
@@ -24,14 +25,13 @@ const HomePageProvider = (props: ProviderProps) => {
   useEffect(() => {
     const query = searchParams.get('query')
     const page = searchParams.get('page')
-    const limit = searchParams.get('limit')
 
     if (!query) return
 
     let skip: number | undefined
 
-    if (!isNaN(Number(page)) && !isNaN(Number(limit))) {
-      skip = (Number(page) - 1) * Number(limit)
+    if (!isNaN(Number(page))) {
+      skip = (Number(page) - 1) * DEFAULT_RESULTS_LIMIT
     }
 
     search(query, skip)
