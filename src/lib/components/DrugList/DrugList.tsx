@@ -28,11 +28,7 @@ export function DrugList() {
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
-          onChange={(page) => {
-            if (page < 1 || page > totalPages) return
-
-            navigate(`/?query=${query}&page=${page}`)
-          }}
+          onChange={(page) => navigate(`/?query=${query}&page=${page}`)}
         />
       </Box>
       <Disclaimer value={data.meta?.disclaimer} />
