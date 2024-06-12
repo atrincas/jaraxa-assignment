@@ -32,8 +32,18 @@ export interface DrugSubmission {
   submission_number: string
   submission_status: string
   submission_status_date: string
+  submission_class_code: string
+  submission_class_code_description: string
+  submission_public_notes?: string
+  application_docs?: ApplicationDoc[]
 }
 
+export interface ApplicationDoc {
+  id: string
+  url: string
+  date: string
+  type: string
+}
 export interface OpenFDA {
   application_number: string[]
   brand_name: string[]

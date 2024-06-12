@@ -18,7 +18,7 @@ function HomePageInner() {
   let Component = null
 
   if (status === ApiStatus.Loading) {
-    Component = <Skeleton />
+    Component = <Skeleton type="homePage" />
   }
 
   if (status === ApiStatus.Error) {
@@ -31,9 +31,9 @@ function HomePageInner() {
   return (
     <>
       <Container maxWidth="sm">
-        <SearchInput initialValue={query || ''} />
+        <SearchInput initialValue={query} />
       </Container>
-      <Container maxWidth="md" sx={(t) => ({ padding: t.spacing(2) })}>
+      <Container maxWidth="lg" sx={(t) => ({ padding: t.spacing(2) })}>
         {Component}
       </Container>
     </>

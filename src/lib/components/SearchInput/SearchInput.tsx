@@ -4,15 +4,15 @@ import SearchIcon from '@mui/icons-material/Search'
 import { useNavigate } from 'react-router-dom'
 
 interface SearchInputProps {
-  initialValue: string
+  initialValue?: string
 }
 
 export function SearchInput({ initialValue }: SearchInputProps) {
-  const [query, setQuery] = useState<string>(initialValue)
+  const [query, setQuery] = useState<string>(initialValue || '')
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (query === initialValue) return
+    if (!initialValue || query === initialValue) return
 
     setQuery(initialValue)
   }, [initialValue])

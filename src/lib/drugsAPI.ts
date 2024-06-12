@@ -33,6 +33,30 @@ class DrugsAPI {
 
     return result
   }
+
+  public searchByApplicationNumber = async (
+    applicationNumber: string
+  ): Promise<DrugsApiResponse> => {
+    let result
+
+    try {
+      const url = `${this.baseURL}?search=application_number:"${encodeURIComponent(
+        applicationNumber
+      )}"`
+      const response = await fetch(url)
+      result = await response.json()
+    } catch (err) {
+      console.error(err)
+      result = {
+        error: {
+          code: 'ERROR',
+          message: 'Something went wrong. Try again.'
+        }
+      }
+    }
+
+    return result
+  }
 }
 
 export default DrugsAPI.getInstance()

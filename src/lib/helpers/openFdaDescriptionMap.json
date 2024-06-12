@@ -1,0 +1,19 @@
+{
+  "application_number": "This corresponds to the NDA, ANDA, or BLA number reported by the labeler for products which have the corresponding Marketing Category designated. If the designated Marketing Category is OTC Monograph Final or OTC Monograph Not Final, then the application number will be the CFR citation corresponding to the appropriate Monograph (e.g. “part 341”). For unapproved drugs, this field will be null.",
+  "brand_name": "Brand or trade name of the drug product.",
+  "generic_name": "Generic name(s) of the drug product.",
+  "manufacturer_name": "Name of manufacturer or company that makes this drug product, corresponding to the labeler code segment of the NDC.",
+  "nui": "Unique identifier applied to a drug concept within the National Drug File Reference Terminology (NDF-RT).",
+  "package_ndc": "This number, known as the NDC, identifies the labeler, product, and trade package size. The first segment, the labeler code, is assigned by the FDA. A labeler is any firm that manufactures (including repackers or relabelers), or distributes (under its own name) the drug.",
+  "pharm_class_cs": "Chemical structure classification of the drug product’s pharmacologic class. Takes the form of the classification, followed by `[Chemical/Ingredient]` (such as `Thiazides [Chemical/Ingredient]` or `Antibodies, Monoclonal [Chemical/Ingredient].",
+  "pharm_class_epc": "Established pharmacologic class associated with an approved indication of an active moiety (generic drug) that the FDA has determined to be scientifically valid and clinically meaningful. Takes the form of the pharmacologic class, followed by `[EPC]` (such as `Thiazide Diuretic [EPC]` or `Tumor Necrosis Factor Blocker [EPC]`.",
+  "pharm_class_pe": "Physiologic effect or pharmacodynamic effect—tissue, organ, or organ system level functional activity—of the drug’s established pharmacologic class. Takes the form of the effect, followed by `[PE]` (such as `Increased Diuresis [PE]` or `Decreased Cytokine Activity [PE]`.",
+  "pharm_class_moa": "Mechanism of action of the drug—molecular, subcellular, or cellular functional activity—of the drug’s established pharmacologic class. Takes the form of the mechanism of action, followed by `[MoA]` (such as `Calcium Channel Antagonists [MoA]` or `Tumor Necrosis Factor Receptor Blocking Activity [MoA]`.",
+  "product_ndc": "The labeler manufacturer code and product code segments of the NDC number, separated by a hyphen.",
+  "route": "The route of administation of the drug product.",
+  "rxcui": "The RxNorm Concept Unique Identifier. RxCUI is a unique number that describes a semantic concept about the drug product, including its ingredients, strength, and dose forms.",
+  "spl_id": "Unique identifier for a particular version of a Structured Product Label for a product. Also referred to as the document ID.",
+  "spl_set_id": "Unique identifier for the Structured Product Label for a product, which is stable across versions of the label. Also referred to as the set ID.",
+  "substance_name": "The list of active ingredients of a drug product.",
+  "unii": "Unique Ingredient Identifier, which is a non-proprietary, free, unique, unambiguous, non-semantic, alphanumeric identifier based on a substance’s molecular structure and/or descriptive information."
+}

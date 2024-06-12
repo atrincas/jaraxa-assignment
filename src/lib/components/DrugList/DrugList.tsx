@@ -16,7 +16,7 @@ export function DrugList() {
       <List>
         {data.results.map((item) => (
           <ListItemButton
-            key={item.application_number}
+            key={`drugListItem-${item.application_number}`}
             component={Link}
             to={`/drugs/${item.application_number}`}
           >
