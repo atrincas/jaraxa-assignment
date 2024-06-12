@@ -43,7 +43,7 @@ export function SubmissionsTable({ items }: SubmissionsTableProps) {
           <TableBody>
             {items.map((row) => (
               <TableRow
-                key={`SubmissionsTableRow-${row.submission_number}`}
+                key={`SubmissionsTableRow-${row.submission_number}-${row.submission_type}-${row.submission_status}`}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell>{row.submission_number}</TableCell>

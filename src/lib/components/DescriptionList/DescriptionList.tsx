@@ -3,6 +3,8 @@ import React from 'react'
 import { OpenFDA } from '../../../types'
 import InfoIcon from '@mui/icons-material/InfoOutlined'
 import openFdaDescriptionMap from '../../helpers/openFdaDescriptionMap.json'
+import { Link } from 'react-router-dom'
+import drugsAPI from '../../drugsAPI'
 
 interface DescriptionListProps {
   data: OpenFDA
@@ -33,7 +35,14 @@ export function DescriptionList({ data }: DescriptionListProps) {
               marginBottom={2}
             >
               {data[key].map((v) => (
-                <Chip key={`openfda-${v}`} label={v} size="small" />
+                <Chip
+                  component={Link}
+                  to={`/?query=${drugsAPI.getQueryForField(`openfda.${key}`, v)}`}
+                  key={`openfda-${v}`}
+                  label={v}
+                  size="small"
+                  clickable
+                />
               ))}
             </Typography>
             {keys.length - 1 === i ? null : <Divider sx={{ marginBottom: 2 }} />}

@@ -22,15 +22,13 @@ export function DrugsPage() {
     if (!id) return
 
     drugsAPI
-      .searchByApplicationNumber(id)
+      .search(`application_number:"${id}"`)
       .then((d) => {
         setData(d)
         setStatus(ApiStatus.Success)
       })
       .catch(() => setStatus(ApiStatus.Error))
   }, [])
-
-  console.log(data)
 
   if (status === ApiStatus.Loading) return <Skeleton type="drugsPage" />
 
