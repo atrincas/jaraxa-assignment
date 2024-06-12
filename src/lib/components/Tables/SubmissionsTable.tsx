@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 import { DrugSubmission } from '../../../types'
 import InfoIcon from '@mui/icons-material/InfoOutlined'
-import { submissionsTableHeaders } from './Table.helpers'
+import { getDate, submissionsTableHeaders } from './Table.helpers'
 
 interface SubmissionsTableProps {
   items: DrugSubmission[]
@@ -49,6 +49,7 @@ export function SubmissionsTable({ items }: SubmissionsTableProps) {
                 <TableCell>{row.submission_number}</TableCell>
                 <TableCell>{row.submission_type}</TableCell>
                 <TableCell>{row.submission_status}</TableCell>
+                <TableCell>{getDate(row.submission_status_date)}</TableCell>
                 <TableCell>{row.submission_class_code}</TableCell>
                 <TableCell>{row.submission_class_code}</TableCell>
                 <TableCell>

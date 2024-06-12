@@ -37,6 +37,10 @@ export const submissionsTableHeaders = [
     description: 'The current status of this submission.'
   },
   {
+    label: 'Status Date',
+    description: 'The date the status was applied to the submission.'
+  },
+  {
     label: 'Class Code',
     description:
       'The Submission Classification Code, previously known as the Chemistry Classification Code, is assigned as a “Type” code.'
@@ -55,3 +59,8 @@ export const submissionsTableHeaders = [
     description: 'Publicly available notes regarding the submission.'
   }
 ]
+
+// returns format dd-mm-yyyy
+export const getDate = (value: string) => {
+  return `${value.substring(6, 8)}-${value.substring(4, 6)}-${value.substring(0, 4)}`
+}
